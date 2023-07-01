@@ -1,0 +1,72 @@
+---
+import protriate from '/protriate.jpg'
+
+---
+
+<div class="relative mx-12 flex items-center flex-col xl:flex-row justify-center">
+  <div>
+    <h1 class="text-xl">
+        Enter Hua's Doodle-Dazzled <span id="scribble" class="font-bold"
+          >Digital Universe!</span
+        >
+      </h1>
+      <div class="relative">
+         
+        <p id="anim-p" class="p-6 text-lg">
+          You've stumbled upon <span class="font-bold text-primary text-red-600"
+            >Hua's</span
+          > Corner of the internet, where creativity runs rampant and normal i setting
+          on a washing machine. <br />
+          <br />
+          Stick around, explore the digitaal masterpieces, and enjoy the occassion of
+          shenanigans. It's more fun than you'd think!
+          <br />
+          <br />
+          Delight in the unpredictable artistic shenanigans that burst forth canvas of
+          this digital universe. Here, every visit is an adventure of an exploration.
+          Dive in, the pixels are warm!
+        </p>
+      </div>
+    
+      <div class="flex justify-center pt-12 text-center xl:gap-16 mb-12">
+        <div class="w-32">
+            <h2>Art posts</h2>
+            <p id="art-counter" class="text-xl font-bold">85</p>
+        </div>
+        <div class="w-32">
+            <h2>Youtube </h2>
+            <p id="youtube-counter" class="text-xl font-bold">1.2m</p>
+        </div>
+        <div class="w-32">
+            <h2>Reviews</h2>
+            <p id="review-counter" class="text-xl font-bold">50</p>
+        </div>
+      </div>
+  </div>
+
+  <div class="relative py-4">
+    <img src={protriate} alt="image of Hua's" width={700} height={700} class=" rounded-md"/>
+  </div>
+</div>
+
+<div class="mt-12 h-4 w-full bg-black"></div>
+
+<script>
+
+    
+
+    const increamentCounter = (selector: string, current: number, target:number, duration: number, letter: string = " ")=>{
+        let counter = document.getElementById(selector)
+        let stepTime = Math.abs(Math.floor(duration/target))
+        if(current < target && counter){
+            current++
+            counter.innerText = current.toString() + letter
+            setTimeout(()=>increamentCounter(selector, current, target, duration, letter)), stepTime
+        }
+
+    }
+    increamentCounter('art-counter', 0, 85, 1000)
+    increamentCounter('youtube-counter', 0, 600, 1000, "k") 
+    increamentCounter('review-counter', 0, 350, 1000)
+   
+</script>
